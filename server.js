@@ -9,6 +9,12 @@ app.use(express.bodyParser());
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.listen(app.get('port'), function(){
 console.log("website is running on port %s", app.get('port'));
+
+fs.readdirSync('./controllers').forEach(function(file){
+	if(file.substr(-3) == '.js'){
+		require('./controllers/' + file)(app);
+	}
+})
 });
 
 
