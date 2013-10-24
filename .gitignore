@@ -1,0 +1,3 @@
+_ReSharper.*
+*.ReSharper.user
+node_modules/
